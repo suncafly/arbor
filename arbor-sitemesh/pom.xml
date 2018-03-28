@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>arbor-security</artifactId>
+        <groupId>com.arbor.security</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.arbor.security</groupId>
+    <artifactId>arbor-sitemesh</artifactId>
+
+    <dependencies>
+        <!-- 根据官方bug修改说明，编译SNAPSHOT版本-->
+        <dependency>
+            <groupId>org.sitemesh</groupId>
+            <artifactId>sitemesh</artifactId>
+            <version>3.0.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.arbor.security</groupId>
+            <artifactId>arbor-security-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

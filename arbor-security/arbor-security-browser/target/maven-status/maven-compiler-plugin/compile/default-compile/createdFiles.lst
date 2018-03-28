@@ -1,0 +1,12 @@
+com/arbor/security/browser/respository/UserRepository.class
+com/arbor/security/browser/authentication/BrowserAuthenticationFailureHandler.class
+com/arbor/security/browser/service/BrowserUserDetailService.class
+com/arbor/security/browser/controller/BrowserSecurityController.class
+com/arbor/security/browser/BrowserUserDetailFactory.class
+com/arbor/security/browser/authentication/BrowserAuthenticationSuccessHandler.class
+com/arbor/security/browser/modle/User.class
+com/arbor/security/browser/modle/Authority.class
+com/arbor/security/browser/modle/AuthorityName.class
+com/arbor/security/browser/BrowserUserDetails.class
+com/arbor/security/browser/BrowserSecurityConfig.class
+com/arbor/security/browser/support/SimpleResponse.class

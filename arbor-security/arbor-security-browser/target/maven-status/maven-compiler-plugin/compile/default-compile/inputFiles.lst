@@ -1,0 +1,12 @@
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/BrowserUserDetails.java
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/service/BrowserUserDetailService.java
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/modle/User.java
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/authentication/BrowserAuthenticationFailureHandler.java
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/respository/UserRepository.java
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/modle/Authority.java
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/BrowserUserDetailFactory.java
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/BrowserSecurityConfig.java
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/modle/AuthorityName.java
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/authentication/BrowserAuthenticationSuccessHandler.java
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/controller/BrowserSecurityController.java
+/Users/apple/suncafly/arbor-security/arbor-security-browser/src/main/java/com/arbor/security/browser/support/SimpleResponse.java

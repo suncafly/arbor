@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="arbor-captcha" />
+        <module name="arbor-demo" />
+        <module name="arbor-security-app" />
+        <module name="arbor-security-browser" />
+        <module name="arbor-security-core" />
+        <module name="arbor-security-demo" />
+        <module name="arbor-sitemesh" />
+        <module name="arbor-webjar" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="arbor-captcha" target="1.8" />
+      <module name="arbor-demo" target="1.8" />
+      <module name="arbor-security" target="1.8" />
+      <module name="arbor-security-app" target="1.8" />
+      <module name="arbor-security-browser" target="1.8" />
+      <module name="arbor-security-core" target="1.8" />
+      <module name="arbor-security-demo" target="1.8" />
+      <module name="arbor-sitemesh" target="1.8" />
+      <module name="arbor-webjar" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
