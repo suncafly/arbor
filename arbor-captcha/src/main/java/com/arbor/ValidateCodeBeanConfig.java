@@ -1,7 +1,7 @@
 package com.arbor;
 
+import com.arbor.configure.ValidateCodeProperties;
 import com.arbor.image.ImageCodeGenerator;
-import com.arbor.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -14,13 +14,20 @@ import org.springframework.context.annotation.Configuration;
 public class ValidateCodeBeanConfig {
 
     @Autowired
-    private SecurityProperties securityProperties;
+    private ValidateCodeProperties validateCodeProperties;
 
     @Bean
     @ConditionalOnMissingBean(name = "imageValidateCodeGenerator")
     public ValidateCodeGenerator imageValidateCodeGenerator() {
         ImageCodeGenerator codeGenerator = new ImageCodeGenerator();
-        codeGenerator.setSecurityProperties(securityProperties);
+        codeGenerator.setValidateCodeProperties(validateCodeProperties);
         return codeGenerator;
+    }
+
+
+    @Bean
+    @ConditionalOnMissingBean(name = "captchaValidateCodeFilter")
+    public ValidateCodeFilter captchaValidateCodeFilter() {
+        return new ValidateCodeFilter();
     }
 }

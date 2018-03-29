@@ -4,7 +4,7 @@
 package com.arbor;
 
 
-import com.arbor.security.core.properties.SecurityConstants;
+import com.arbor.configure.CaptchaConstants;
 
 /**
  * @author zhailiang
@@ -18,7 +18,7 @@ public enum ValidateCodeType {
 	SMS {
 		@Override
 		public String getParamNameOnValidate() {
-			return SecurityConstants.DEFAULT_PARAMETER_NAME_CODE_SMS;
+			return CaptchaConstants.DEFAULT_PARAMETER_NAME_CODE_SMS;
 		}
 	},
 	/**
@@ -27,7 +27,7 @@ public enum ValidateCodeType {
 	IMAGE {
 		@Override
 		public String getParamNameOnValidate() {
-			return SecurityConstants.DEFAULT_PARAMETER_NAME_CODE_IMAGE;
+			return CaptchaConstants.DEFAULT_PARAMETER_NAME_CODE_IMAGE;
 		}
 	};
 

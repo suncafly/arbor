@@ -7,13 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="arbor-captcha" />
-        <module name="arbor-demo" />
-        <module name="arbor-security-app" />
-        <module name="arbor-security-browser" />
-        <module name="arbor-security-core" />
-        <module name="arbor-security-demo" />
-        <module name="arbor-sitemesh" />
-        <module name="arbor-webjar" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

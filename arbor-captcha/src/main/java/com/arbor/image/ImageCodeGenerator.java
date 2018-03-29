@@ -1,7 +1,7 @@
 package com.arbor.image;
 
 import com.arbor.ValidateCodeGenerator;
-import com.arbor.security.core.properties.SecurityProperties;
+import com.arbor.configure.ValidateCodeProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestUtils;
@@ -20,7 +20,7 @@ public class ImageCodeGenerator implements ValidateCodeGenerator{
      * 系统配置
      */
     @Autowired
-    private SecurityProperties securityProperties;
+    private ValidateCodeProperties validateCodeProperties;
 
     /*
      * (non-Javadoc)
@@ -32,9 +32,9 @@ public class ImageCodeGenerator implements ValidateCodeGenerator{
     @Override
     public ImageCode generate(ServletWebRequest request) {
         int width = ServletRequestUtils.getIntParameter(request.getRequest(), "width",
-                securityProperties.getCode().getImage().getWidth());
+                validateCodeProperties.getImage().getWidth());
         int height = ServletRequestUtils.getIntParameter(request.getRequest(), "height",
-                securityProperties.getCode().getImage().getHeight());
+                validateCodeProperties.getImage().getHeight());
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
         Graphics g = image.getGraphics();
@@ -54,7 +54,7 @@ public class ImageCodeGenerator implements ValidateCodeGenerator{
         }
 
         String sRand = "";
-        for (int i = 0; i < securityProperties.getCode().getImage().getLength(); i++) {
+        for (int i = 0; i < validateCodeProperties.getImage().getLength(); i++) {
             String rand = String.valueOf(random.nextInt(10));
             sRand += rand;
             g.setColor(new Color(20 + random.nextInt(110), 20 + random.nextInt(110), 20 + random.nextInt(110)));
@@ -63,7 +63,7 @@ public class ImageCodeGenerator implements ValidateCodeGenerator{
 
         g.dispose();
 
-        return new ImageCode(image, sRand, securityProperties.getCode().getImage().getExpireIn());
+        return new ImageCode(image, sRand, validateCodeProperties.getImage().getExpireIn());
     }
 
     /**
@@ -87,13 +87,11 @@ public class ImageCodeGenerator implements ValidateCodeGenerator{
         return new Color(r, g, b);
     }
 
-    public SecurityProperties getSecurityProperties() {
-        return securityProperties;
+    public ValidateCodeProperties getValidateCodeProperties() {
+        return validateCodeProperties;
     }
 
-    public void setSecurityProperties(SecurityProperties securityProperties) {
-        this.securityProperties = securityProperties;
+    public void setValidateCodeProperties(ValidateCodeProperties validateCodeProperties) {
+        this.validateCodeProperties = validateCodeProperties;
     }
-
-
 }

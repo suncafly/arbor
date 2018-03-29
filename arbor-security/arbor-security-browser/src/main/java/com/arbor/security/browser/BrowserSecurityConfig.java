@@ -2,6 +2,7 @@ package com.arbor.security.browser;
 
 import com.arbor.security.browser.authentication.BrowserAuthenticationFailureHandler;
 import com.arbor.security.browser.authentication.BrowserAuthenticationSuccessHandler;
+import com.arbor.security.core.properties.SecurityConstants;
 import com.arbor.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @Configuration
 @EnableWebSecurity
-public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
+public abstract class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private SecurityProperties securityProperties;
@@ -37,8 +38,8 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/authentication/require",
-                        securityProperties.getBrowser().getLoginPage(),"/code/image").permitAll()
+                .antMatchers(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
+                        securityProperties.getBrowser().getLoginPage()).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -51,5 +52,6 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutUrl("/logout")
                 .permitAll();
+        //SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX+"/image"
     }
 }

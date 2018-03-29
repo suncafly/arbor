@@ -1,5 +1,9 @@
 com/arbor/security/core/properties/SecurityProperties.class
 com/arbor/security/core/properties/SecurityConstants.class
+com/arbor/security/core/properties/ValidateCodeProperties.class
 com/arbor/security/core/properties/BrowserProperties.class
+com/arbor/security/core/properties/ImageCodeProperties.class
+com/arbor/security/core/properties/SmsCodeProperties.class
 com/arbor/security/core/SecurityCoreConfig.class
+com/arbor/security/core/properties/SitemeshProperites.class
 com/arbor/security/core/properties/LoginResponseType.class

@@ -1,0 +1,22 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.arbor.configure.ValidateCodeProperties",
+      "name": "com.arbor.code",
+      "type": "com.arbor.configure.ValidateCodeProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.arbor.configure.ValidateCodeProperties",
+      "name": "com.arbor.code.image",
+      "type": "com.arbor.configure.ImageCodeProperties"
+    },
+    {
+      "sourceType": "com.arbor.configure.ValidateCodeProperties",
+      "name": "com.arbor.code.sms",
+      "type": "com.arbor.configure.SmsCodeProperties"
+    }
+  ]
+}

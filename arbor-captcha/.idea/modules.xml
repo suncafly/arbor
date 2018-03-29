@@ -3,14 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/arbor-captcha.iml" filepath="$PROJECT_DIR$/arbor-captcha.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../arbor-demo/arbor-demo.iml" filepath="$PROJECT_DIR$/../arbor-demo/arbor-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../arbor-security/arbor-security.iml" filepath="$PROJECT_DIR$/../arbor-security/arbor-security.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../arbor-security/arbor-security-app/arbor-security-app.iml" filepath="$PROJECT_DIR$/../arbor-security/arbor-security-app/arbor-security-app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../arbor-security/arbor-security-browser/arbor-security-browser.iml" filepath="$PROJECT_DIR$/../arbor-security/arbor-security-browser/arbor-security-browser.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../arbor-security/arbor-security-core/arbor-security-core.iml" filepath="$PROJECT_DIR$/../arbor-security/arbor-security-core/arbor-security-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../arbor-security/arbor-security-demo/arbor-security-demo.iml" filepath="$PROJECT_DIR$/../arbor-security/arbor-security-demo/arbor-security-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../arbor-sitemesh/arbor-sitemesh.iml" filepath="$PROJECT_DIR$/../arbor-sitemesh/arbor-sitemesh.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../arbor-webjar/arbor-webjar.iml" filepath="$PROJECT_DIR$/../arbor-webjar/arbor-webjar.iml" />
     </modules>
   </component>
 </project>

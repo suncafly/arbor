@@ -1,9 +1,11 @@
 package com.arbor;
 
-import com.arbor.security.core.properties.SecurityConstants;
+import com.arbor.configure.CaptchaConstants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.ServletWebRequest;
 
@@ -27,10 +29,20 @@ public class ValidateCodeController {
      * @param type
      * @throws Exception
      */
-    @GetMapping(SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/{type}")
+    @GetMapping(CaptchaConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/{type}")
     public void createCode(HttpServletRequest request, HttpServletResponse response, @PathVariable String type)
             throws Exception {
         validateCodeProcessorHolder.findValidateCodeProcessor(type).create(new ServletWebRequest(request, response));
+    }
+
+    @PostMapping("/captcha/check")
+    public String login(HttpServletRequest request,  HttpServletResponse response){
+        String method = request.getMethod();
+        if(StringUtils.startsWithIgnoreCase(method, "post")){
+            return "success";
+        }else{
+            return "fail";
+        }
     }
 
 }

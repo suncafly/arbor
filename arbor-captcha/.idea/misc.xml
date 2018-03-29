@@ -4,11 +4,16 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/../arbor-demo/pom.xml" />
-        <option value="$PROJECT_DIR$/../arbor-security/pom.xml" />
-        <option value="$PROJECT_DIR$/../arbor-sitemesh/pom.xml" />
-        <option value="$PROJECT_DIR$/../arbor-webjar/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/../arbor-security/arbor-security-app/pom.xml" />
+        <option value="$PROJECT_DIR$/../arbor-security/arbor-security-browser/pom.xml" />
+        <option value="$PROJECT_DIR$/../arbor-security/arbor-security-core/pom.xml" />
+        <option value="$PROJECT_DIR$/../arbor-security/arbor-security-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../arbor-security/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">

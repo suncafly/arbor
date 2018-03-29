@@ -1,10 +1,10 @@
 package com.arbor.sitemesh3.filter;
 
+import com.arbor.sitemesh3.configure.SitemeshProperites;
 import com.arbor.sitemesh3.tagrule.MyTagRuleBundle;
 import org.sitemesh.builder.SiteMeshFilterBuilder;
 import org.sitemesh.config.ConfigurableSiteMeshFilter;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.arbor.security.core.properties.SecurityProperties;
 
 /**
  * sitemesh 自定义配置
@@ -13,7 +13,7 @@ import com.arbor.security.core.properties.SecurityProperties;
 public class Meshsite3Filter extends ConfigurableSiteMeshFilter {
 
     @Autowired
-    private SecurityProperties securityProperties;
+    private SitemeshProperites sitemeshProperites;
 
     @Override
     protected void applyCustomConfiguration(SiteMeshFilterBuilder builder) {
@@ -22,17 +22,17 @@ public class Meshsite3Filter extends ConfigurableSiteMeshFilter {
 //                .addTagRuleBundle(new MyTagRuleBundle());//自定义标签
 
         //是否开启sitemesh
-        boolean open = securityProperties.getSitemesh().isOpen();
+        boolean open = sitemeshProperites.isOpen();
         if(!open){
             return;
         }
 
         //需要装饰的访问路径
-        String contentPath = securityProperties.getSitemesh().getContentPath();
+        String contentPath = sitemeshProperites.getContentPath();
         //装饰器页面路径
-        String decoratorPath = securityProperties.getSitemesh().getDecoratorPath();
+        String decoratorPath = sitemeshProperites.getDecoratorPath();
         //不需要装饰的访问路径,多个之间用英文逗号分隔
-        String excludedPaths = securityProperties.getSitemesh().getExcludedPaths();
+        String excludedPaths = sitemeshProperites.getExcludedPaths();
 
         // 通过配置文件
         if(!"".equals(contentPath) && !"".equals(decoratorPath)){
