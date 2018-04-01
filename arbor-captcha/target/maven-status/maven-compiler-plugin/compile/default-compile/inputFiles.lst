@@ -8,7 +8,10 @@
 /Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/ValidateCode.java
 /Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/ValidateCodeFilter.java
 /Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/Application.java
+/Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/sms/DefaultSmsCodeSender.java
 /Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/configure/ValidateCodeProperties.java
+/Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/sms/SmsCodeGenerator.java
+/Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/sms/SmsCodeSender.java
 /Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/ValidateCodeProcessor.java
 /Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/configure/ImageCodeProperties.java
 /Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/configure/SmsCodeProperties.java
@@ -17,3 +20,4 @@
 /Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/ValidateCodeGenerator.java
 /Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/ValidateCodeType.java
 /Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/image/ImageCode.java
+/Users/apple/suncafly/arbor/arbor-captcha/src/main/java/com/arbor/sms/SmsCodeProcessor.java

@@ -22,7 +22,7 @@ import java.io.IOException;
 /**
  * Created by apple on 2018/3/15.
  */
-@Component
+@Component("arborAuthenticationSuccessHandler")
 public class BrowserAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
     private Logger logger = LoggerFactory.getLogger(getClass());

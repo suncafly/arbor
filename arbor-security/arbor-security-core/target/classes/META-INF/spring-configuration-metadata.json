@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.arbor.security.core.properties.SecurityProperties",
+      "name": "com.arbor",
+      "type": "com.arbor.security.core.properties.SecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.arbor.security.core.properties.SecurityProperties",
+      "name": "com.arbor.browser",
+      "type": "com.arbor.security.core.properties.BrowserProperties"
+    }
+  ]
+}

@@ -45,7 +45,7 @@ public class BrowserSecurityController {
      * @return
      * @throws IOException
      */
-    @RequestMapping(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL)
+    @RequestMapping(value =SecurityConstants.DEFAULT_UNAUTHENTICATION_URL)
     @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
     public SimpleResponse requireAuthentication(HttpServletRequest request, HttpServletResponse response)
             throws IOException {

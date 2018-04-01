@@ -4,11 +4,10 @@ import com.arbor.configure.ValidateCodeProperties;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
+import sun.security.util.SecurityConstants;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -82,8 +81,8 @@ public abstract class AbstractValidateCodeFilter extends OncePerRequestFilter im
                 validateCodeProcessorHolder.findValidateCodeProcessor(type)
                         .validate(new ServletWebRequest(request, response));
                 logger.info("验证码校验通过");
-            } catch (ValidateCodeException exception) {
-                throw exception;
+            } catch (ValidateCodeException e) {
+                throw e;
             }
         }
     }
@@ -108,4 +107,11 @@ public abstract class AbstractValidateCodeFilter extends OncePerRequestFilter im
         return result;
     }
 
+    public Map<String, ValidateCodeType> getUrlMap() {
+        return urlMap;
+    }
+
+    public void setUrlMap(Map<String, ValidateCodeType> urlMap) {
+        this.urlMap = urlMap;
+    }
 }

@@ -1,7 +1,9 @@
-package com.arbor.security.validate;
+package com.arbor.security.validate.code;
 
 import com.arbor.AbstractValidateCodeFilter;
 import com.arbor.ValidateCodeException;
+import com.arbor.ValidateCodeType;
+import com.arbor.security.core.properties.SecurityConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
@@ -16,8 +18,8 @@ import java.io.IOException;
  * Created by apple on 28/03/2018.
  */
 
-@Component("captchaValidateCodeFilter")
-public class CaptchaValidateCodeFilter extends AbstractValidateCodeFilter {
+@Component("validateCodeFilter")
+public class ValidateCodeFilter extends AbstractValidateCodeFilter {
 
     @Autowired
     private AuthenticationFailureHandler authenticationFailureHandler;
@@ -29,8 +31,16 @@ public class CaptchaValidateCodeFilter extends AbstractValidateCodeFilter {
              super.doFilterInternal(request, response, chain);
          }catch (ValidateCodeException e){
              authenticationFailureHandler.onAuthenticationFailure(request, response, e);
+             return;
          }
         chain.doFilter(request, response);
+    }
+
+    @Override
+    public void afterPropertiesSet() throws ServletException {
+        super.afterPropertiesSet();
+        getUrlMap().put(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM, ValidateCodeType.IMAGE);
+        getUrlMap().put(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE, ValidateCodeType.SMS);
     }
 
 }

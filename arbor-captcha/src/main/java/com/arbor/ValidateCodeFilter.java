@@ -21,5 +21,4 @@ public class ValidateCodeFilter extends AbstractValidateCodeFilter {
         }
         chain.doFilter(request, response);
     }
-
 }

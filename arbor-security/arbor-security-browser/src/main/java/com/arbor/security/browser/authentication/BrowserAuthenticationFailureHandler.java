@@ -1,5 +1,6 @@
 package com.arbor.security.browser.authentication;
 
+import com.arbor.security.browser.support.SimpleResponse;
 import com.arbor.security.core.properties.LoginResponseType;
 import com.arbor.security.core.properties.SecurityProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,7 +22,7 @@ import java.util.Map;
 /**
  * Created by apple on 2018/3/15.
  */
-@Component
+@Component("arborAuthenticationFailureHandler")
 public class BrowserAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
     Logger logger = LoggerFactory.getLogger(getClass());
@@ -39,9 +40,10 @@ public class BrowserAuthenticationFailureHandler extends SimpleUrlAuthentication
             response.setContentType("application/json;charset=UTF-8");
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
             Map<String, String> message = new HashMap<String, String>();
-            message.put("message", exception.getMessage());
-            response.getWriter().write(objectMapper.writeValueAsString(message));
+           // message.put("message", exception.getMessage());
+            response.getWriter().write(objectMapper.writeValueAsString(new SimpleResponse(exception.getMessage())));
         }else{
+            response.setContentType("text/html;charset=UTF-8");
             super.onAuthenticationFailure(request, response, exception);
         }
     }
