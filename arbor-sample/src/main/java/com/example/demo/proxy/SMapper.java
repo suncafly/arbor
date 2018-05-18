@@ -8,4 +8,5 @@ package com.example.demo.proxy;
  */
 public interface SMapper extends PMapper{
 
+
 }

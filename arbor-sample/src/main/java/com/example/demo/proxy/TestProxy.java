@@ -14,13 +14,17 @@ import javax.annotation.PostConstruct;
 @Component
 public class TestProxy {
 
+//    @Autowired
+//    private PManager pManager;
+
     @Autowired
-    private PManager pManager;
+    private FManager fManager;
+
 
     @PostConstruct
     public void build(){
         Schedule schedule = new Schedule();
-        schedule.setType("shanMapperImpl");
-        pManager.save(schedule);
+//        schedule.setType("shanMapperImpl");
+        fManager.save(schedule);
     }
 }

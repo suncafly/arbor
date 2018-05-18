@@ -14,4 +14,5 @@ public class ShanMapperImpl implements SMapper {
     public void save(Schedule schedule) {
         System.out.println("this is shan");
     }
+
 }

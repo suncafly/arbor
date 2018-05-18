@@ -5,6 +5,6 @@ package com.arbor.demo;
  */
 public interface People {
 
-     public void show();
+     void show();
 
 }

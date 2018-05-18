@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * @author LiFang
  * @create 2018-05-11 9:30 AM
  */
-@Repository
+@Repository("pRepository")
 public class PRepositoryImpl extends AbstractRepository {
 
 

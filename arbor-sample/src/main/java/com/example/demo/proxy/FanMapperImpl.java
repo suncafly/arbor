@@ -10,8 +10,15 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class FanMapperImpl implements FMapper {
+
     @Override
     public void save(Schedule schedule) {
-        System.out.println("this is fan");
+        System.out.println("this is fan save");
+    }
+
+    @Override
+    public void show() {
+
+        System.out.println("this is fan show");
     }
 }
