@@ -16,10 +16,11 @@ import java.util.Map;
 @RestController
 @RequestMapping("/swagger2")
 @Api("这是一个swagger测试类")
-public class Demo {
+public class SwaggerUI {
 
-    @GetMapping("/test/{id}")
+    @GetMapping(value = "/test/{id}")
     @ApiOperation(value = "ApiParam方式", notes = "this is a test")
+    @ResponseBody
     public Map<String, Object> pathAndRequestParams(
             @ApiParam(value = "产品编号", required = true, defaultValue = "1", allowableValues = "1,2,3....") @PathVariable("id") Long id,
             @ApiParam(value = "名称") @RequestParam("name") String name) {
@@ -29,7 +30,7 @@ public class Demo {
         return map;
     }
 
-    @PostMapping("/entity")
+    @PostMapping("/test")
     @ApiOperation(value = "新增dog", notes = "宠物信息维护")
     public Map<String, Object> valueObjectParams(@RequestBody DogValueObject dogValueObject) {
         Map<String, Object> map = new HashMap<>();

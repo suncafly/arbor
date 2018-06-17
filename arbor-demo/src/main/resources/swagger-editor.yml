@@ -1,0 +1,200 @@
+swagger: "2.0"
+info:
+  description: "arbor"
+  version: "1.0.0"
+  title: "学习swagger-editor yml使用"
+  termsOfService: "localhost:8080"
+  contact:
+    email: "suncaflying@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+# basePath: "/editor"
+tags:
+- name: "test"
+  description: "for a demo"
+- name: "person"
+  description: "个人信息"
+schemes:
+- "http"
+paths:
+  /test:
+    post:
+      tags:
+      - "test"
+      summary: "创建DogValueObject"
+      description: ""
+      operationId: "createDogValueObject"
+      produces:
+      - "application/json"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "dogValueObject"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/DogValueObject"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid ID supplied"
+          # headers:
+          #   Access-Control-Allow-Origin:
+          #     type: "string"
+        403:
+          description: "Forbidden"
+        404:
+          description: "DogValueObject not found"
+  /test/{id}:
+    get:
+      tags:
+      - "test"
+      summary: "Find DogValueObject by ID"
+      description: "Returns a single DogValueObject"
+      operationId: "getId"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of DogValueObject to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "name"
+        in: "query"
+        description: "The name"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid ID supplied"
+        403:
+          description: "Forbidden"
+        404:
+          description: "DogValueObject not found"
+  /person/:
+    get:
+      tags:
+      - "person"
+      summary: "查询所有人的个人信息"
+      description: "查询所有人的个人信息"
+      operationId: "personList"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+    post:
+      tags:
+      - "person"
+      summary: "新增个人信息"
+      description: "新增个人信息"
+      operationId: "create"
+      produces:
+      - "application/json"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "person"
+        description: "create a person"
+        required: true
+        schema:
+          $ref: '#/definitions/Person'
+      responses:
+        200:
+          description: OK
+  /person/{id}:
+    put:
+      tags:
+      - "person"
+      description: "根据ID更新个人信息"
+      summary: "根据ID更新个人信息"
+      operationId: "update"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of DogValueObject to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "person"
+        in: "body"
+        description: ""
+        required: true
+        schema:
+          $ref: '#/definitions/Person'
+      responses:
+        200:
+          description: OK
+    delete:
+      tags:
+      - "person"
+      summary: "根据ID删除个人信息"
+      description: "根据ID删除个人信息"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of DogValueObject to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: OK
+    get:
+      tags:
+      - "person"
+      summary: "根据ID查询个人信息"
+      description: "根据ID查询个人信息"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of DogValueObject to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: OK
+definitions:
+  DogValueObject:
+    description: "值对象"
+    type: "object"
+    required:
+    - "age"
+    - "name"
+    properties:
+      age:
+        type: "integer"
+        format: "int64"
+        description: "年龄"
+      name:
+        type: "string"
+        description: "名字"
+    xml:
+      name: "DogValueObject"
+  Person:
+    description: "个人信息表"
+    type: "object"
+    required:
+    - "firstname"
+    - "lastname"
+    properties:
+      firstname:
+        type: "string"
+        description: "firstname"
+      lastname:
+        type: "string"
+        description: "lastname"
+    xml:
+      name: "person"
+
+
