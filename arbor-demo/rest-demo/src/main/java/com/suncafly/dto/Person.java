@@ -1,4 +1,4 @@
-package com.suncafly.controller;
+package com.suncafly.dto;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

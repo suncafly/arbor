@@ -1,5 +1,6 @@
 package com.suncafly.controller;
 
+import com.suncafly.repository.PersonRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,9 +12,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.util.List;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -25,6 +27,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+//@AutoConfigureMockMvc
+//@WebMvcTest(UserController.class)
 public class PersonRepositoryTest {
 
     @Autowired
@@ -32,8 +36,6 @@ public class PersonRepositoryTest {
 
     private MockMvc mockMvc;
 
-    @Autowired
-    private PersonRepository personRepository;
 
     @Before
     public void setup() {
@@ -41,38 +43,61 @@ public class PersonRepositoryTest {
                 .build();
     }
 
-    @Test
-    public void show() {
-        List<Person> list = personRepository.findAll();
-        System.out.println("#############################");
-        System.out.println(list);
-        System.out.println("#############################");
-    }
-
-
-    @Test
-    public void personList() throws Exception {
-        String result = mockMvc.perform(
-                get("/user/person").contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(status().isOk()).andExpect(jsonPath("$.length()").value(2))
-                .andReturn().getResponse().getContentAsString();
-        System.out.println(result);
-    }
 
     @Test
     public void whenQuerySuccess() throws Exception {
         String result = mockMvc.perform(
                 get("/user")
-                        .param("name", "jojo")
-                        .param("age", "18")
-                        .param("otherInfo", "aaa")
+                        .param("firstname", "matt")
                         .param("size", "15")
-                        .param("page", "3")
-                        .param("sort", "age,desc")
+                        .param("page", "0")
+                        .param("sort", "firstname,desc")
                         .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(status().isOk()).andExpect(jsonPath("$.length()").value(3))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.length()").value(1))
                 .andReturn().getResponse().getContentAsString();
         System.out.println(result);
     }
 
+    @Test
+    public void whenGetInfoSuccess() throws Exception {
+        String result = mockMvc.perform(get("/user/1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.firstname").value("matt"))
+                .andReturn().getResponse().getContentAsString();
+
+        System.out.println(result);
+    }
+
+
+    @Test
+    public void whenCreateSuccess() throws Exception {
+
+        String content = "{\"firstname\":\"tom\",\"lastname\":\"aa\"}";
+        String reuslt = mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(content))
+                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.id").value("1"))
+                .andReturn().getResponse().getContentAsString();
+        System.out.println(reuslt);
+    }
+
+    @Test
+    public void whenUpdateSuccess() throws Exception {
+        String content = "{\"id\":\"3\", \"firstname\":\"tom\",\"lastname\":\"bb\"}";
+        String reuslt = mockMvc.perform(put("/user/3").contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(content))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.lastname").value("bb"))
+                .andReturn().getResponse().getContentAsString();
+        System.out.println(reuslt);
+    }
+
+
+    @Test
+    public void whenDeleteSuccess() throws Exception {
+        mockMvc.perform(delete("/user/1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk());
+    }
 }
