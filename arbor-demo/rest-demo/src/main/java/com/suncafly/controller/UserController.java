@@ -4,10 +4,8 @@ import com.suncafly.dto.User;
 import com.suncafly.dto.UserQueryCondition;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
-import org.jsondoc.core.annotation.ApiAuthBasicUser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +23,9 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
+    private PersonRepository personRepository;
+
     @GetMapping
     public List<User> query(UserQueryCondition condition, Pageable pageable) {
         System.out.println(ReflectionToStringBuilder.toString(condition, ToStringStyle.MULTI_LINE_STYLE));
@@ -37,4 +38,10 @@ public class UserController {
         data.add(new User());
         return data;
     }
+
+    @GetMapping("/person")
+    public List<Person> personList(){
+        return personRepository.findAll();
+    }
+
 }
