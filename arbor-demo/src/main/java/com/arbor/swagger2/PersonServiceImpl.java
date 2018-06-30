@@ -1,6 +1,8 @@
 package com.arbor.swagger2;
 
+import com.arbor.swagger2.event.PersonEvent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.AssertTrue;
@@ -11,6 +13,9 @@ public class PersonServiceImpl implements PersonService {
 
 	@Autowired
 	private PersonRepository personRepository;
+	@Autowired
+	private ApplicationEventPublisher applicationEventPublisher;
+
 
 	@Override
 	public List<Person> loadAll() {
@@ -21,9 +26,12 @@ public class PersonServiceImpl implements PersonService {
 	public boolean create(Person person) {
 		personRepository.save(person);
 		if(personRepository.findOne(person.getId()).getId() == person.getId()){
+			PersonEvent personEvent = new PersonEvent();
+			personEvent.setStatus(1);
+			personEvent.setPayload(person);
+			applicationEventPublisher.publishEvent(personEvent);
 			return true;
 		}
-
 		return true;
 	}
 

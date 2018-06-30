@@ -18,7 +18,6 @@ object Test1 {
 
     fun show():List<DarkVO>{
         val darkVOS = ArrayList<DarkVO>()
-        darkVOS
         darkVOS.add(DarkVO("lifang", 1))
         return  darkVOS
     }

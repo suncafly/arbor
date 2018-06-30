@@ -7,11 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="arbor-demo" />
+        <module name="rest-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="arbor-demo" target="1.8" />
+      <module name="rest-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

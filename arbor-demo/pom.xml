@@ -7,7 +7,11 @@
 
     <groupId>com.arbor.security</groupId>
     <artifactId>arbor-demo</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0</version>
+    <modules>
+        <module>rest-demo</module>
+    </modules>
 
     <properties>
         <kotlin.version>1.2.41</kotlin.version>
@@ -81,6 +85,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.14</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mvnsearch.ddd</groupId>
+            <artifactId>ddd-base</artifactId>
+            <version>1.0.6</version>
         </dependency>
 
         <dependency>
