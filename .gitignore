@@ -1,8 +1,6 @@
 
 .idea/
-.idea/workspace.xml
 arbor-demo/target/
 arbor-demo/.idea/
-arbor-demo/.idea/workspace.xml
 arbor-demo/rest-demo/.idea/
 arbor-demo/rest-demo/target/
