@@ -1,8 +1,7 @@
 package com.suncafly.controller;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import com.suncafly.dto.Person;
-import com.suncafly.dto.PersonQueryCondition;
+import com.suncafly.exception.UserControllerException;
 import com.suncafly.repository.PersonRepository;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
@@ -55,6 +54,12 @@ public class PersonController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id){
         personRepository.delete(id);
+    }
+
+
+    @GetMapping("/check")
+    public Person check(){
+        throw new UserControllerException("this is a check method");
     }
 
 }

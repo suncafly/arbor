@@ -12,7 +12,6 @@
     <groupId>com.arbor.security</groupId>
     <artifactId>rest-demo</artifactId>
 
-
     <dependencies>
         <dependency>
             <groupId>commons-lang</groupId>
@@ -25,6 +24,5 @@
             <version>2.11.0</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 </project>
