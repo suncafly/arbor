@@ -4,8 +4,8 @@ import javax.servlet.*;
 import java.io.IOException;
 
 /**
- * ${TODO}
- *
+ * 第三方特殊Filter
+ * @see com.suncafly.config.AppConfig
  * @author LiFang
  * @create 2018-07-01 9:27 PM
  */

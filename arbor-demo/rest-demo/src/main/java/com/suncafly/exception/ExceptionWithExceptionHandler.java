@@ -7,11 +7,12 @@ package com.suncafly.exception;
  * @create 2018-07-01 9:52 PM
  */
 
-public class UserControllerException extends RuntimeException {
+public class ExceptionWithExceptionHandler extends RuntimeException {
 
     private String name;
 
-    public UserControllerException(String name){
+    public ExceptionWithExceptionHandler(String name, String message){
+        super("ExceptionWithExceptionHandler:" + message);
         this.name = name;
     }
 
