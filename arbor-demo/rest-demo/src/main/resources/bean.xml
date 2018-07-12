@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!--构造方法注入-->
+    <bean id="user" class="com.suncafly.spring.ioc.bean.User">
+        <property name="id" value="1"/>
+        <property name="name" value="lifang"/>
+    </bean>
+    <!--静态工厂注入-->
+    <bean id="dog" class="com.suncafly.spring.StaticFactoryBean" factory-method="createDog"/>
+    <!--实例化工厂注入-->
+    <bean id="dynamicFactoryBean" class="com.suncafly.spring.DynamicFactoryBean"/>
+    <bean id="pig" factory-bean="dynamicFactoryBean" factory-method="create"/>
+</beans>
+
