@@ -15,9 +15,9 @@ public class EmailService {
     @EventListener
     @Async
     public void sendMail(UserRegisterEvent userRegisterEvent){
-        User user = (User) userRegisterEvent.getSource();
-        System.out.println(user.getName());
-        System.out.println("发送邮件成功！");
+//        User user = (User) userRegisterEvent.getSource();
+//        System.out.println(user.getName());
+//        System.out.println("发送邮件成功！");
     }
 
 }

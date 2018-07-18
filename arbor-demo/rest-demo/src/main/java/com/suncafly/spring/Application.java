@@ -3,7 +3,12 @@ package com.suncafly.spring;
 import com.suncafly.spring.ioc.bean.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import sun.security.krb5.internal.EncAPRepPart;
+
+import java.nio.file.FileSystem;
 
 /**
  * ${TODO}
@@ -25,18 +30,22 @@ public class Application {
 //        System.out.println(pig);
 //        applicationContext.close();
 
-        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(BeansConfig.class);
-        annotationConfigApplicationContext.scan("com.suncafly.spring");
-        Fish fish = (Fish) annotationConfigApplicationContext.getBean("fish");
-        User user = (User) annotationConfigApplicationContext.getBean("user");
-        Arabus arabus = (Arabus) annotationConfigApplicationContext.getBean("arabus");
+//        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(BeansConfig.class);
+//        annotationConfigApplicationContext.scan("com.suncafly.spring");
+//        Fish fish = (Fish) annotationConfigApplicationContext.getBean("fish");
+//        User user = (User) annotationConfigApplicationContext.getBean("user");
+//        Arabus arabus = (Arabus) annotationConfigApplicationContext.getBean("arabus");
 //        Ear ear = (Ear) annotationConfigApplicationContext.getBean("ear");
-        Animal animal = (Animal) annotationConfigApplicationContext.getBean("animal");
-        System.out.println(fish);
-        System.out.println(user);
-        System.out.println(arabus);
+//        Animal animal = (Animal) annotationConfigApplicationContext.getBean("animal");
+//        System.out.println(fish);
+//        System.out.println(user);
+//        System.out.println(arabus);
 //        System.out.println(ear);
-        animal.show();
-        annotationConfigApplicationContext.close();
+//        animal.show();
+//        annotationConfigApplicationContext.close();
+        FileSystemXmlApplicationContext fileSystemXmlApplicationContext = new FileSystemXmlApplicationContext("AAA");
+        if(fileSystemXmlApplicationContext instanceof DefaultResourceLoader){
+            System.out.println("$$");
+        }
     }
 }
