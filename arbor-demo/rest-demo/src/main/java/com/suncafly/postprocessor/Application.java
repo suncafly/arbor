@@ -33,7 +33,8 @@ public class Application {
         System.out.println(ctx.getBeanDefinitionCount());
         BeanFactory beanFactory = ctx.getParentBeanFactory();
         System.out.println(beanFactory);
-//        AutowireCapableBeanFactory autowireCapableBeanFactory = ctx.getAutowireCapableBeanFactory();
+        System.out.println(beanFactory);
+//        autowireCapableBeanFactory = ctx.getAutowireCapableBeanFactory();
 //        Object object =  autowireCapableBeanFactory.getBean("&beanFactory");
 //        System.out.println(object);
     }
